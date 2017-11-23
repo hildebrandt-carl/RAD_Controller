@@ -16,7 +16,7 @@ except:
 
 print("Connection success")
 print("Telling the server that its the controller connecting")
-sock.send("c")
+sock.send("controller")
 
 print("Waiting for a responce")
 return_string = sock.recv(256)
