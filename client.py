@@ -2,8 +2,6 @@ import socket
 
 ipAddress = '160.119.248.176'
 
-ipAddress = '127.0.0.1'
-
 portNumber = 4242
 
 print("Starting RAD_Team's controller")
