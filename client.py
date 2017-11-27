@@ -33,8 +33,6 @@ print("Waiting for commands from server")
 x = 0
 while(1):
     print sock.recv(256)
-    #sock.send("ack%d" % x)
-    #x = x + 1
 
 print("Closing connection")
 sock.close()
