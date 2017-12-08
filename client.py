@@ -4,7 +4,7 @@ from serial_utils import *
 ipAddress = '160.119.248.28'
 tcpPort = 4242
 
-serialPort = '/dev/ttyS0'
+serialPort = '/dev/ttyUSB0'
 
 print("Starting RAD_Team's controller")
 
@@ -47,7 +47,7 @@ print("Waiting for commands from web server")
 x = 0
 while(1):
     webserverMSG = sock.recv(256)
-    print("Recieved : %s", webserverMSG)
+    print("Recieved : %s" % webserverMSG)
     print("Forawrding message on serial")
     try:
         send(webserverMSG)
