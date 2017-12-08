@@ -25,7 +25,6 @@ def connect(inPort):
 		return
 	except (OSError, serial.SerialException):
 		print("Connection failure")
-		exit(0)
 	return
 
 def disconnect(*args):
