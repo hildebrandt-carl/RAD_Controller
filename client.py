@@ -20,7 +20,7 @@ except:
 print("Connection success")
 
 
-print("Attempting serial connection : %s" % (serialPort))
+print("Attempting serial connection")
 connect()
 
 print("Sending webserver that this is a controller.")

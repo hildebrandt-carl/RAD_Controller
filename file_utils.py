@@ -1,11 +1,13 @@
 from serial_utils import *
+import time
 
 # usage: sendFile( fileName )
 # example: sendFile( 'patterns/SimpleBeat.csv' )
 def sendFile(*args):
 
 	# reset virtual clocks to 5 seconds before time 0, when the pattern will start
-	sendMessage(16,0,(pow(2,32)-320)
+	sendMessage(16,0,(pow(2,32)-64))
+	time.sleep(2)
 
 	# open and read the file data
 	f =  open(args[0])
@@ -40,24 +42,18 @@ def handleWebMessage(*args):
 	d = 0
 	for char in msg:
 		# patterns
-		elif char == 'u':
+		if char == 'w':
 			sendFile( 'patterns/SimpleBeat.csv' )
-		elif char == 'v':
-			# set virtual clocks to a high number to skip everything in the FIFO queues
-			sendMessage(16,0,1000000)
-		elif char == 'w':
-			sendFile( 'patterns/ComplexAttack.csv' )
 		elif char == 'x':
-			# set virtual clocks to a high number to skip everything in the FIFO queues
-			sendMessage(16,0,1000000)
+			sendFile( 'patterns/ComplexAttack.csv' )
 		elif char == 'y':
 			sendFile( 'patterns/EyeOfTheTiger.csv' )
 		elif char == 'z':
 			# set virtual clocks to a high number to skip everything in the FIFO queues
-			sendMessage(16,0,1000000)
+			sendMessage(16,0,10000)
 
 		# realtime
-		if char == 'a':     # BASS
+		elif char == 'a':     # BASS
 			d = d + 128 # (1<<7) = 128
 		elif char == 'b':   # FLTOM
 			d = d + 64  # (1<<6) = 64

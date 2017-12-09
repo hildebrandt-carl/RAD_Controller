@@ -3,6 +3,6 @@ import struct
 
 connect()
 
-sendMessage(0,4,3)
-sendMessage(0,8,6)
-sendMessage(0,16,60)
+sendMessage(16,0,(pow(2,32)-320))
+#sendMessage(0,8,6)
+#sendMessage(0,16,60)
