@@ -1,5 +1,10 @@
 import socket
 from serial_utils import *
+import timeout
+
+connect()
+send('my gosh')
+print receive()
 
 ipAddress = '160.119.248.28'
 tcpPort = 4242
@@ -7,7 +12,6 @@ tcpPort = 4242
 serialPort = '/dev/ttyS0'
 
 print("Starting RAD_Team's controller")
-
 
 print("Attempting TCP connection : %s:%d" % (ipAddress, tcpPort))
 sock = socket.socket()
@@ -22,7 +26,7 @@ print("Connection success")
 
 
 print("Attempting serial connection : %s" % (serialPort))
-connect('/dev/ttyS0')
+connect()
 
 print("Sending webserver that this is a controller.")
 try:
@@ -45,20 +49,18 @@ else:
 
 print("Waiting for commands from web server")
 x = 0
+
+#send('Hello world')
+#print receive()
+
 while(1):
     webserverMSG = sock.recv(256)
     print("Recieved : %s" % webserverMSG)
     print("Forawrding message on serial")
     try:
-        send(0xFF)
-        send(0x00)
-        send(0XFF)
-        send(0x00)
-        send(0x00)
-        send(0x00)
-        send(0x00)
-        send(0xFF)
-    except:
+        sendMessage(0,4,80)        
+    except Exception as err:
+        print(err)
         print("Unable to send message")
 
 print("Closing the web server connection")
