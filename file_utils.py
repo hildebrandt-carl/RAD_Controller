@@ -50,7 +50,7 @@ def handleWebMessage(*args):
 			sendFile( 'patterns/EyeOfTheTiger.csv' )
 		elif char == 'z':
 			# set virtual clocks to a high number to skip everything in the FIFO queues
-			sendMessage(16,0,10000)
+			sendMessage(16,0,20000)
 
 		# realtime
 		elif char == 'a':     # BASS
