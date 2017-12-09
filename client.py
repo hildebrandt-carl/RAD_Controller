@@ -50,7 +50,14 @@ while(1):
     print("Recieved : %s" % webserverMSG)
     print("Forawrding message on serial")
     try:
-        send(webserverMSG)
+        send(0xFF)
+        send(0x00)
+        send(0XFF)
+        send(0x00)
+        send(0x00)
+        send(0x00)
+        send(0x00)
+        send(0xFF)
     except:
         print("Unable to send message")
 
