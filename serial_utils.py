@@ -11,14 +11,15 @@ def getConnected():
 	return connected
 
 @timeout(10)
-def connect(inPort):
+def connect(*args):
 	global connected
 	global portName
 	global port
 	connected = False
-	portName = inPort
+	portName = "/dev/ttyS0"
 	try:
 		port = serial.Serial(portName)
+                port.baudrate = 115200
 		port.timeout = 1
 		port.write_timeout = 1
 		connected = True

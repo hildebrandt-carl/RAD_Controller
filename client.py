@@ -4,7 +4,7 @@ from serial_utils import *
 ipAddress = '160.119.248.28'
 tcpPort = 4242
 
-serialPort = '/dev/ttyUSB0'
+serialPort = '/dev/ttyS0'
 
 print("Starting RAD_Team's controller")
 
